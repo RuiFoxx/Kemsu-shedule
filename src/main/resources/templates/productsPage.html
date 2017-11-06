@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello!</title>
+</head>
+<body>
+<form action="/" method="post">
+    <table align="left" class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="${product.price}"></td>
+            <td><input name="add" type="submit" value="Add to cart" class="btn btn-default"></input></td>
+        </tr>
+    </table>
+
+    <table align="right" class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="productincart : ${productsincart}">
+            <td th:text="${productincart.id}"></td>
+            <td th:text="${productincart.name}"></td>
+            <td th:text="${productincart.price}"></td>
+            <td>
+                <button type="submit" class="btn btn-default">Remove from cart</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
